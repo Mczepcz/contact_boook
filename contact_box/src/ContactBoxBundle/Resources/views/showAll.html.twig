@@ -1,0 +1,13 @@
+
+{% extends "ContactBoxBundle::show.html.twig" %}
+
+{% block body %}
+    {% for contact in contacts %}
+        {% block contact %}
+            {{ parent() }}
+        {% endblock %}
+        <a href="{{path('showContact',{'id':contact.id})}}">Show details</a>
+    {% else %}
+        <p> No contacts found</p>
+    {% endfor %}
+{% endblock %}

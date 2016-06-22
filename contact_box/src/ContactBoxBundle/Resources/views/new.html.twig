@@ -1,0 +1,8 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{formName}}{% endblock %}
+
+{% block body %}
+    <p>{{formName}}</p>
+    {{ form(form) }}
+{% endblock %}

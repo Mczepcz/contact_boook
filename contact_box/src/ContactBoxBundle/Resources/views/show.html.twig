@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    {%block contact %}    
+        <div>
+            <p>Name: {{contact.name}}</p>
+            <p>Surname: {{contact.surname}}</p>
+            <p>Description: {{contact.description}}</p>
+        </div>
+    {%endblock%}
+    <a href="{{path('addAddress',{'id':contact.id})}}">Add new address</a>
+    <a href="{{path('addEmail',{'id':contact.id})}}">Add new email</a>
+    <a href="{{path('addPhone',{'id':contact.id})}}">Add new phone</a>
+    <div>
+        <p><b>{{contact.name}}'s addresses:</b></p>
+        {% for address in contact.addresses %}
+            <p>City: {{address.city}}</p>
+            <p>Street: {{address.street}}</p>
+            <p>House Number: {{address.houseNo}}</p>
+            <p>Apartment Number: {{address.apartmentNo}}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <p><b>{{contact.name}}'s E-mails:</b></p>
+        {% for email in contact.emails %}
+            <p>Email: {{email.email}} Type: {{email.type}}</p>
+        {% endfor %}
+    </div>
+    <div>
+        <p><b>{{contact.name}}'s Phones:</b></p>
+        {% for phone in contact.phones %}
+            <p>Phone: {{phone.phoneNo}} Type: {{phone.type}}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
